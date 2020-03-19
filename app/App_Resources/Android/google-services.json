@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "481554726293",
+    "firebase_url": "https://parking-app-demo.firebaseio.com",
+    "project_id": "parking-app-demo",
+    "storage_bucket": "parking-app-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481554726293:android:394324c828b35a175d4a9c",
+        "android_client_info": {
+          "package_name": "org.nativescript.parkingappdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481554726293-oqjt57bsfugtt6s0psv0dhprp9gaeugn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo__5bzOZmA6D54zmmCLjahafB__MRm1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481554726293-oqjt57bsfugtt6s0psv0dhprp9gaeugn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

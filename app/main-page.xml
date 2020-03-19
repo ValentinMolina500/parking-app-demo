@@ -1,0 +1,66 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+
+    <ActionBar class="{{ active ? 'active-action-bar' : '' }}" title="Parking App Demo" icon=""></ActionBar>
+
+    <StackLayout>
+        <Label class="header" text="{{ active ? 'Sending data...' : 'Send data' }}" />
+        <Button  visibility="{{ active ? 'collapsed' : 'visible' }}" id="start-button" text="Start" tap="{{ startSendData }}"/>
+
+        <GridLayout visibility="{{ active ? 'visible' : 'collapsed' }}" columns="*, *" rows="auto">
+            <StackLayout col="0"  id="beacon-data">
+                <Label fontSize="16" fontWeight="bold" text="Beacon Data" />
+                <Label fontSize="16" text="{{ 'X: ' + beaconX }}" />
+                <Label fontSize="16" text="{{ 'Y: ' + beaconY }}" />
+                <Label fontSize="16" fontWeight="bold" text="Target Data" />
+                <Label fontSize="16" text="{{ 'X: ' + targetX }}" />
+                <Label fontSize="16" text="{{ 'Y: ' + targetY }}" />
+            </StackLayout>
+            <Button col="1"  class="cancel-button" tap="{{ cancelData }}" text="cancel"/>
+        </GridLayout>
+
+
+        <GridLayout height="auto" width="100%" rows="auto" columns="*, 2*, 2*">
+            <Label class="table-heading-alt" col="0" text="Phones" />
+            <Label class="table-heading" col="1" text="Distance" />
+            <Label class="table-heading" col="2" text="Location (x, y)" />
+        </GridLayout>
+
+        <ListView id="phone-table" items="{{ phones }}" width="100%" height="auto" itemTemplateSelector="phoneSelector">
+            <ListView.itemTemplates>
+                <template key="odd">
+                    <GridLayout width="100%" height="auto" columns="*, 2*, 2*">
+                        <Label class="phone td-even" colSpan="3" text="{{ name }}" />
+                        <!-- <Label class="data" col="1" text="{{ '(' + location.x + ', ' + location.y + ', ' + r + ')' }}" /> -->
+                        <Label class="data" col="1" text="{{ r }}" />
+                        <!-- <Label class="{{ status == 'Sleep' ? 'status-inactive far' : 'status-active far' }}" col="2" text="{{ status == 'Sleep' ? '&#xf880;' : '&#xf1eb;' }}" /> -->
+                        <Label class="data" col="2" text="{{ '(' + location.x + ', ' + location.y + ')' }}" />
+                    </GridLayout>
+                </template>
+                <template key="even">
+                    <GridLayout width="100%" height="auto" columns="*, 2*, 2*">
+                        <Label class="phone td-even odd" colSpan="3" text="{{ name }}" />
+                        <!-- <Label class="data" col="1" text="{{ '(' + location.x + ', ' + location.y + ', ' + r + ')' }}" /> -->
+                        <Label class="data" col="1" text="{{ r }}" />
+                        <Label class="data" col="2" text="{{ '(' + location.x + ', ' + location.y + ')' }}" />
+                    </GridLayout>
+                </template>
+            </ListView.itemTemplates>
+        </ListView>
+
+        <Image margin="16" src="~/images/hamster.jpg" />
+        <!-- <GridLayout id="phone-table" height="auto" width="100%" columns="*, 2*, *" rows="auto, auto, auto, auto">
+            <StackLayout class="td-even" row="0" col="0" colSpan="3">
+                <Label class="phone even" text="Phone 1" />
+            </StackLayout>
+            <StackLayout class="td-even" row="1" col="0" colSpan="3">
+                <Label class="phone" text="Phone 2" />
+            </StackLayout>
+            <StackLayout class="td-even" row="2" col="0" colSpan="3">
+                <Label class="phone even" text="Phone 3" />
+            </StackLayout>
+            <StackLayout class="td-even" row="3" col="0" colSpan="3">
+                <Label class="phone" text="Phone 4" />
+            </StackLayout>
+        </GridLayout> -->
+    </StackLayout>
+</Page>
